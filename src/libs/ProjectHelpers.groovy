@@ -143,7 +143,7 @@ def start1c(platform1c,server1c, infobase, user, passw) {
 //  endDate - дата окончания операции
 //  backupDir - директория для сохранения логов операции
 //
-def start1c(platform1c,server1c, infobase, user, passw, startDate, endDate, backupDir) {
+def start1c(platform1c, server1c, infobase, user, passw, startDate, endDate, backupDir) {
     utils = new Utils()
     returnCode = utils.cmd("C:\\Windows\\SysWOW64\\WindowsPowerShell\\v1.0\\powershell.exe -ExecutionPolicy Bypass -file scripts/repost8.ps1 -platform1c \"${platform1c}\" -server1c \"${server1c}\" -infobase \"${infobase}\" -user \"${user}\" -passw \"${passw}\" -startDate \"${startDate}\" -endDate \"${endDate}\" -backupDir \"${backupDir}\"")
     if (returnCode != 0) {
