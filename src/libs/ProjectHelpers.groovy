@@ -113,3 +113,20 @@ def update(platform1c, server1c, infobase, user, passw, backupDir, permCode) {
         utils.raiseError("Возникла ошибка при обновлении информационной базы ${infobase}")
     }
 }
+
+// Запускает 1С Предприятие и открывает внешнюю обработку, которая закрывает 1С Предприятие
+//
+// Параметры:
+//  platform1c - версия платформы 1С, например 8.3.12.1529
+//  server1c - сервер 1c
+//  infobase - имя базы на сервере 1c и sql
+//  user - имя админа 1С базы
+//  passw - пароль админа 1С базы
+//
+def start1c(platform1c,server1c, infobase, user, passw) {
+    utils = new Utils()
+    returnCode = utils.cmd("C:\\Windows\\SysWOW64\\WindowsPowerShell\\v1.0\\powershell.exe -ExecutionPolicy Bypass -file scripts/update.ps1 -platform1c \"${platform1c}\" -server1c \"${server1c}\" -infobase \"${infobase}\" -user \"${user}\" -passw \"${passw}\" -backupDir \"${backupDir}\" -permCode \"${permCode}\"")
+    if (returnCode != 0) {
+        utils.raiseError("Возникла ошибка при обновлении информационной базы ${infobase}")
+    }
+}
