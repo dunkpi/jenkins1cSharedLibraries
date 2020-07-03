@@ -125,8 +125,8 @@ def update(platform1c, server1c, infobase, user, passw, backupDir, permCode) {
 //
 def start1c(platform1c,server1c, infobase, user, passw) {
     utils = new Utils()
-    returnCode = utils.cmd("C:\\Windows\\SysWOW64\\WindowsPowerShell\\v1.0\\powershell.exe -ExecutionPolicy Bypass -file scripts/update.ps1 -platform1c \"${platform1c}\" -server1c \"${server1c}\" -infobase \"${infobase}\" -user \"${user}\" -passw \"${passw}\" -backupDir \"${backupDir}\" -permCode \"${permCode}\"")
+    returnCode = utils.cmd("C:\\Windows\\SysWOW64\\WindowsPowerShell\\v1.0\\powershell.exe -ExecutionPolicy Bypass -file scripts/start_1c.ps1 -platform1c \"${platform1c}\" -server1c \"${server1c}\" -infobase \"${infobase}\" -user \"${user}\" -passw \"${passw}\"")
     if (returnCode != 0) {
-        utils.raiseError("Возникла ошибка при обновлении информационной базы ${infobase}")
+        utils.raiseError("Возникла ошибка при запуске 1С Предприятия ${infobase}")
     }
 }
