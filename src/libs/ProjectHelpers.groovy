@@ -169,3 +169,22 @@ def transfer(platform1c, server1c, infobase, user, passw, startDate, endDate) {
         utils.raiseError("Возникла ошибка при запуске 1С Предприятия ${infobase}")
     }
 }
+
+// Запускает 1С Предприятие и открывает обработку выполняющую перенос в 1С 7 через обработку ИзмененныеДокументы
+//
+// Параметры:
+//  platform1c - версия платформы 1С, например 8.3.12.1529
+//  server1c - сервер 1c
+//  infobase - имя базы на сервере 1c и sql
+//  user - имя админа 1С базы
+//  passw - пароль админа 1С базы
+//  startDate - дата начала операции
+//  endDate - дата окончания операции
+//
+def transferChangedDocs(platform1c, server1c, infobase, user, passw, startDate, endDate) {
+    utils = new Utils()
+    returnCode = utils.cmd("C:\\Windows\\SysWOW64\\WindowsPowerShell\\v1.0\\powershell.exe -ExecutionPolicy Bypass -file scripts/transferChangedDocs.ps1 -platform1c \"${platform1c}\" -server1c \"${server1c}\" -infobase \"${infobase}\" -user \"${user}\" -passw \"${passw}\" -startDate \"${startDate}\" -endDate \"${endDate}\"")
+    if (returnCode != 0) {
+        utils.raiseError("Возникла ошибка при запуске 1С Предприятия ${infobase}")
+    }
+}
