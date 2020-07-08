@@ -200,7 +200,7 @@ def transferChangedDocs(platform1c, server1c, infobase, user, passw, startDate, 
 //
 def repost7(ibPath, user, passw, startDate, endDate) {
     utils = new Utils()
-    returnCode = utils.cmd("C:\\Program Files (x86)\\AutoIt3\\AutoIt3.exe" "scripts/repost7.au3" "${ibPath}" "${user}" "${passw}" "${startDate}" "${endDate}")
+    returnCode = utils.cmd("C:\\Program Files (x86)\\AutoIt3\\AutoIt3.exe scripts/repost7.au3 ${ibPath} ${user} ${passw} ${startDate} ${endDate}")
     if (returnCode != 0) {
         utils.raiseError("Возникла ошибка при запуске 1С Предприятия 7 ${ibPath}")
     }
