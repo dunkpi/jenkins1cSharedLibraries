@@ -188,3 +188,20 @@ def transferChangedDocs(platform1c, server1c, infobase, user, passw, startDate, 
         utils.raiseError("Возникла ошибка при запуске 1С Предприятия ${infobase}")
     }
 }
+
+// Запускает 1С Предприятие 7 и открывает обработку выполняющую перепроведение
+//
+// Параметры:
+//  ibPath - Путь к базе 1С
+//  user - имя админа 1С базы
+//  passw - пароль админа 1С базы
+//  startDate - дата начала операции
+//  endDate - дата окончания операции
+//
+def repost7(ibPath, user, passw, startDate, endDate) {
+    utils = new Utils()
+    returnCode = utils.cmd("C:\\Program Files (x86)\\AutoIt3\\AutoIt3.exe" "scripts/repost7.au3" "${ibPath}" "${user}" "${passw}" "${startDate}" "${endDate}")
+    if (returnCode != 0) {
+        utils.raiseError("Возникла ошибка при запуске 1С Предприятия 7 ${ibPath}")
+    }
+}
