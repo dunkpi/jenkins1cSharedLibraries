@@ -197,10 +197,11 @@ def transferChangedDocs(platform1c, server1c, infobase, user, passw, startDate, 
 //  passw - пароль админа 1С базы
 //  startDate - дата начала операции
 //  endDate - дата окончания операции
+//  backupDir - директория для сохранения логов операции
 //
-def repost7(ibPath, user, passw, startDate, endDate) {
+def repost7(ibPath, user, passw, startDate, endDate, backupDir) {
     utils = new Utils()
-    returnCode = utils.cmd("\"C:\\Program Files (x86)\\AutoIt3\\AutoIt3.exe\" \"scripts/repost7.au3\" \"${ibPath}\" \"${user}\" \"${passw}\" \"${startDate}\" \"${endDate}\"")
+    returnCode = utils.cmd("\"C:\\Program Files (x86)\\AutoIt3\\AutoIt3.exe\" \"scripts/repost7.au3\" \"${ibPath}\" \"${user}\" \"${passw}\" \"${startDate}\" \"${endDate}\" \"${backupDir}\"")
     if (returnCode != 0) {
         utils.raiseError("Возникла ошибка при запуске 1С Предприятия 7 ${ibPath}")
     }
